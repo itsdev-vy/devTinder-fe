@@ -1,15 +1,21 @@
 import React, { useState } from 'react';
 import Input from '../input/Input';
 import axios from 'axios';
+import { useDispatch } from 'react-redux';
+import { addUser } from '../../redux/slice/user/userSlice';
+import { useNavigate } from 'react-router';
+import { BASE_URL } from '../../utils/constants';
 
 const Card = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('akshay@namste.com');
+  const [password, setPassword] = useState('Saini@123');
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleSubmit = async () => {
     try {
       const response = await axios.post(
-        'http://localhost:8000/login',
+        BASE_URL + '/login',
         {
           emailId: email,
           password,
@@ -18,12 +24,10 @@ const Card = () => {
           withCredentials: true,
         }
       );
-
-      if (response.status === 200) {
-        console.log('Login successful');
-        setEmail('');
-        setPassword('');
-      }
+      dispatch(addUser(response?.data?.data));
+      navigate('/');
+      setEmail('');
+      setPassword('');
     } catch (error) {
       console.error(error);
     }
