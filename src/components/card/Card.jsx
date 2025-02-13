@@ -9,6 +9,7 @@ import { BASE_URL } from '../../utils/constants';
 const Card = () => {
   const [email, setEmail] = useState('akshay@namste.com');
   const [password, setPassword] = useState('Saini@123');
+  const [error, setError] = useState('');
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -29,6 +30,7 @@ const Card = () => {
       setEmail('');
       setPassword('');
     } catch (error) {
+      setError(error?.response?.data?.error);
       console.error(error);
     }
   };
@@ -47,6 +49,7 @@ const Card = () => {
             />
           </div>
           <div className="card-actions justify-center">
+            <span className="text-red-600">{error}</span>
             <button className="btn btn-primary w-full" onClick={handleSubmit}>
               Login
             </button>
