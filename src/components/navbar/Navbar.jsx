@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router';
 import { BASE_URL } from '../../utils/constants';
 import { removeUser } from '../../redux/slice/user/userSlice';
-import { removeFeed } from '../../redux/slice/feed/feedSlice';
+import { emptyFeed } from '../../redux/slice/feed/feedSlice';
 import { removeConnections } from '../../redux/slice/connections/connectionSlice';
 
 const Navbar = () => {
@@ -22,7 +22,7 @@ const Navbar = () => {
         }
       );
       dispatch(removeUser());
-      dispatch(removeFeed());
+      dispatch(emptyFeed());
       dispatch(removeConnections());
       navigate('/login');
     } catch (error) {
