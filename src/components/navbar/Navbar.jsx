@@ -1,9 +1,11 @@
 import React from 'react';
+import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router';
-import { removeUser } from '../../redux/slice/user/userSlice';
-import axios from 'axios';
 import { BASE_URL } from '../../utils/constants';
+import { removeUser } from '../../redux/slice/user/userSlice';
+import { removeFeed } from '../../redux/slice/feed/feedSlice';
+import { removeConnections } from '../../redux/slice/connections/connectionSlice';
 
 const Navbar = () => {
   const User = useSelector((state) => state.user);
@@ -20,6 +22,8 @@ const Navbar = () => {
         }
       );
       dispatch(removeUser());
+      dispatch(removeFeed());
+      dispatch(removeConnections());
       navigate('/login');
     } catch (error) {
       console.error(error);
@@ -57,7 +61,7 @@ const Navbar = () => {
                 </Link>
               </li>
               <li>
-                <Link to={'/settings'}>Settings</Link>
+                <Link to={'/connections'}>Connections</Link>
               </li>
               <li>
                 <div className="btn btn-ghost" onClick={handleLogout}>
