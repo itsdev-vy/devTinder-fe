@@ -5,6 +5,8 @@ import Profile from './view/profile/Profile';
 import Feed from './view/feed/Feed';
 import Connections from './view/connections/Connections';
 import Requests from './view/requests/Requests';
+import Premium from './view/premium/Premium';
+import Chat from './view/chat/Chat';
 
 function App() {
   return (
