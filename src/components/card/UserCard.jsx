@@ -36,7 +36,7 @@ const UserCard = ({ user, displayCard }) => {
       <div className="card-body">
         <h2 className="card-title">{firstName + ' ' + lastName}</h2>
         {about ? <h6>{about}</h6> : null}
-        {age && <h6>{age + ', ' + gender.toUpperCase()}</h6>}
+        {age && <h6>{age + ', ' + gender?.toUpperCase()}</h6>}
         {!displayCard ? (
           <div className="card-actions justify-center my-4">
             <button
