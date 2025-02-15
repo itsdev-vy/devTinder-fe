@@ -1,6 +1,10 @@
 import React from 'react';
 
 const UserCard = ({ user, displayCard }) => {
+  if (!user) {
+    return <div>No user data available</div>;
+  }
+
   const { firstName, lastName, photoUrl, age, gender, about } = user;
   return (
     <div className="card card-compact bg-base-100 w-96 shadow-xl">
