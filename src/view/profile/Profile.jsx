@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { addUser } from '../../redux/slice/user/userSlice';
 import { BASE_URL } from '../../utils/constants';
-import ProfileInput from '../../components/input/profileInput';
+import ProfileInput from '../../components/input/ProfileInput';
 import UserCard from '../../components/card/UserCard';
 
 const Profile = () => {
