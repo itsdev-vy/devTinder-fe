@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 
 const Premium = () => {
   const [isUserPremium, setIsUserPremium] = useState(false);
+
   useEffect(() => {
     verifyPremiumUser();
   }, []);
@@ -50,6 +51,7 @@ const Premium = () => {
     const rzp = new window.Razorpay(options);
     rzp.open();
   };
+
   return isUserPremium ? (
     "You're are already a premium user"
   ) : (
@@ -64,7 +66,7 @@ const Premium = () => {
             <li> - 3 months</li>
           </ul>
           <button
-            onClick={() => handleBuyClick('gold')}
+            onClick={() => handleBuyClick('Silver')}
             className="btn btn-secondary"
           >
             Buy Silver
