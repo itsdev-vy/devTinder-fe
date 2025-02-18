@@ -35,7 +35,6 @@ const Profile = () => {
           withCredentials: true,
         }
       );
-      console.log(response?.data);
       dispatch(addUser(response?.data));
       if (response?.status === 200) {
         setSuccess('Success');
